@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('Space_Corrected.csv')
+df = pd.read_csv('Space_Corrected (1).csv')
 df.info()
 df[" Rocket"] = pd.to_numeric(df[" Rocket"], errors='coerce')
 
@@ -9,3 +9,5 @@ print("Порожні значення замінено на середні зн
 
 # Заміна коми на крапку в усіх значеннях DataFrame
 df[" Rocket"] = df[" Rocket"].replace('.', ',', regex=True)
+
+print("Середня вартість місії - ", df[" Rocket"].mean())
