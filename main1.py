@@ -6,5 +6,11 @@ df.info()
 
 a = df['Status Rocket'].value_counts()
 a.plot(kind='pie',color=['green','red'])
+
 plt.title("Кількість ракет за статусом")
 plt.show()
+
+
+plt.title("Кількість ракет за статусом")
+plt.show()
+

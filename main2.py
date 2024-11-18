@@ -2,8 +2,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 df = pd.read_csv('Space_Corrected (1).csv')
+
 df.info()
 a = df['Status Mission'].value_counts()
+
+
+
 
 b = df[df['Status Mission']== 'Success']
 compayt = b['Company Name'].value_counts()
