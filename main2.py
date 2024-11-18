@@ -1,13 +1,18 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 
 df = pd.read_csv('Space_Corrected (1).csv')
 df.info()
-df[" Rocket"] = pd.to_numeric(df[" Rocket"], errors='coerce')
+a = df['Status Mission'].value_counts()
 
-df[" Rocket"].fillna(df[" Rocket"].mean(), inplace=True)
-print("Порожні значення замінено на середні значення")
+b = df[df['Status Mission']== 'Success']
+compayt = b['Company Name'].value_counts()
+top = compayt.head(5)
 
-# Заміна коми на крапку в усіх значеннях DataFrame
-df[" Rocket"] = df[" Rocket"].replace('.', ',', regex=True)
-
-
+top.plot(kind='bar',color='blue',figsize=(10,5))
+plt.title("Топ-5 компанії з найбільшою кількістю успішніх запусків")
+plt.xlabel("Компанія")
+plt.ylabel("Кількість успішніх запусків")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
